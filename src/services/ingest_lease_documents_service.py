@@ -55,7 +55,6 @@ class IngestionCollectionDocumentService(object):
     def ingest_analyzer_output(
         self,
         doc_type: IngestDocumentType,
-        market: Optional[str],
         collection_id: str,
         lease_id: Optional[str],
         filename: str,
@@ -67,7 +66,6 @@ class IngestionCollectionDocumentService(object):
 
         Args:
             doc_type (IngestDocumentType): The type of the document being ingested.
-            market (str): The market name.
             collection_id (str): The collection ID.
             lease_id (str): The lease ID.
             filename (str): The filename.
@@ -80,14 +78,12 @@ class IngestionCollectionDocumentService(object):
             doc_type,
             collection_id,
             filename,
-            market,
             lease_id
         )
         markdown_file_path = build_adls_markdown_file_path(
             doc_type,
             collection_id,
             filename,
-            market,
             lease_id
         )
 
@@ -125,7 +121,6 @@ class IngestionCollectionDocumentService(object):
     def ingest_classifier_output(
         self,
         doc_type: IngestDocumentType,
-        market: Optional[str],
         collection_id: str,
         lease_id: Optional[str],
         filename: str,
@@ -137,7 +132,6 @@ class IngestionCollectionDocumentService(object):
 
         Args:
             doc_type (IngestDocumentType): The type of the document being ingested.
-            market (str): The market name.
             collection_id (str): The collection ID.
             lease_id (str): The lease ID.
             filename (str): The filename.
@@ -150,14 +144,12 @@ class IngestionCollectionDocumentService(object):
             doc_type,
             collection_id,
             filename,
-            market,
             lease_id
         )
         markdown_file_path = build_adls_markdown_file_path(
             doc_type,
             collection_id,
             filename,
-            market,
             lease_id
         )
 
@@ -219,12 +211,10 @@ class IngestionCollectionDocumentService(object):
             collection_id: str,
             filename: str,
             config: FieldDataCollectionConfig,
-            market: Optional[str],
             lease_id: Optional[str]) -> bool:
         """Checks if a lease document already exists.
 
         Args:
-            market (str): The market name.
             collection_id (str): The collection ID.
             lease_id (str): The lease ID.
             filename (str): The filename.
@@ -251,7 +241,6 @@ class IngestionCollectionDocumentService(object):
             doc_type,
             collection_id,
             filename,
-            market,
             lease_id,
         )
 
@@ -507,7 +496,7 @@ class IngestionCollectionDocumentService(object):
         # Query Cosmos for collection document
         logging.info(f"Querying CosmosDB for collection ID {collection_id} and Lease Config Hash {config.lease_config_hash}")
         existing_document = self._collection_documents_collection.find_one(
-            {"_id": _build_document_id(collection_id.upper(), config.lease_config_hash)}
+            {"_id": _build_document_id(collection_id, config.lease_config_hash)}
         )
         if not existing_document or existing_document.get("collection_id") is None:
             logging.warning(

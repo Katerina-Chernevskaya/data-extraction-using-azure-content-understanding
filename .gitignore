@@ -572,3 +572,7 @@ terraform.rc
 
 # .tfstate files are managed by Terraform and should not be committed
 .terraform.lock.hcl
+
+src/analyzer_cache/*
+
+.DS_Store

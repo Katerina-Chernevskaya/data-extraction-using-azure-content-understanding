@@ -76,15 +76,10 @@ class LlmRequestManager:
             response = raw_content.strip()  # Fallback to raw content
             citations = []
 
-        # structured_data = collection_plugin.restore_structured_data()
         citations = collection_plugin.restore_citations(citations)
         query_response = QueryResponse(
             response=response,
-            citations=citations,
-            metadata={
-                # "structured_data": structured_data,
-                "unstructured_data": []
-            }
+            citations=citations
         )
         return query_response
 
