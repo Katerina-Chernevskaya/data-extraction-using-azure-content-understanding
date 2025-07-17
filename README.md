@@ -348,12 +348,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 For support and questions:
 
 - Create an issue in this repository
-- Check the [Azure Content Understanding documentation](https://docs.microsoft.com/azure/applied-ai-services/form-recognizer/)
-- Visit the [Azure OpenAI documentation](https://docs.microsoft.com/azure/cognitive-services/openai/)
 
 ## 🔗 Related Resources
 
-- [Azure Content Understanding Documentation](https://docs.microsoft.com/azure/applied-ai-services/form-recognizer/)
+- [Azure Content Understanding documentation](https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/)
 - [Azure OpenAI Service Documentation](https://docs.microsoft.com/azure/cognitive-services/openai/)
 - [Azure Functions Python Developer Guide](https://docs.microsoft.com/azure/azure-functions/functions-reference-python)
 - [Azure Cosmos DB Documentation](https://docs.microsoft.com/azure/cosmos-db/)
