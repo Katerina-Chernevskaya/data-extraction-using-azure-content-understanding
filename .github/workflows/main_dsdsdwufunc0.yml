@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_FUNCTIONAPP_NAME: dsdsdwufunc0     # <-- твой Function App
+  AZURE_FUNCTIONAPP_NAME: kc1xtrdemsecfunc0     # <-- твой Function App
   AZURE_FUNCTIONAPP_PACKAGE_PATH: src           # код функций лежит в /src
   PYTHON_VERSION: "3.11"                        # у тебя в Deployment Center 3.11
 
